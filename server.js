@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -158,10 +159,6 @@ app.put('/api/contact/:id', authenticateToken, async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: 'Mesaj güncellenirken bir hata oluştu', error: error.message });
     }
-});
-
-app.get('/', (req, res) => {
-    res.send('API çalışıyor!');
 });
 
 const PORT = process.env.PORT || 3000;
